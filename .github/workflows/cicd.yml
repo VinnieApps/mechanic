@@ -25,7 +25,7 @@ jobs:
 
       - name: Calculate Next Version
         run: |
-          go run cmd/main.go semantic-release version-file vinnieapps/mechanic
+          ./cicd semantic-release version-file vinnieapps/mechanic
           cat .version
 
       - name: Test
