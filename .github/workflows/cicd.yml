@@ -44,7 +44,7 @@ jobs:
             cmd/mechanic/main.go
 
       - name: Copy binaries
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p build/packages
           cp build/binaries/darwin_amd64/mechanic build/packages/mechanic_darwin_amd64
@@ -52,5 +52,5 @@ jobs:
           cp build/binaries/windows_amd64/mechanic.exe build/packages/mechanic_windows_amd64.exe
 
       - name: Release
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: ./cicd semantic-release publish-release vinnieapps/mechanic --github-token ${{ secrets.GITHUB_TOKEN }} --upload build/packages
