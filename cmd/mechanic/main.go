@@ -13,6 +13,8 @@ import (
 	"github.com/vinnieapps/mechanic/internal/work"
 )
 
+var version string
+
 func main() {
 	start := time.Now()
 	abs, err := filepath.Abs(".")
@@ -20,7 +22,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Printf("Current dir is: %s\n", abs)
 	flag.Parse()
 
 	args := flag.Args()
@@ -29,6 +30,17 @@ func main() {
 		os.Exit(1)
 	}
 
+	if args[0] == "version" {
+		if version == "" {
+			fmt.Println("Version not defined.")
+			os.Exit(0)
+		}
+
+		fmt.Println(version)
+		os.Exit(0)
+	}
+
+	fmt.Printf("Current dir is: %s\n", abs)
 	packageName := "package.tar.gz"
 	if len(args) == 1 {
 		packageName = args[0]
