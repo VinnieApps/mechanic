@@ -1,0 +1,4 @@
+- description: Copy nginx configuration
+  type: ensure file
+  source: nginx/server.conf
+  target: /etc/nginx/conf.d
