@@ -25,7 +25,7 @@ func main() {
 	flag.Parse()
 
 	args := flag.Args()
-	if len(args) > 1 {
+	if len(args) != 1 {
 		printUsage()
 		os.Exit(1)
 	}
