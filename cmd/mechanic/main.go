@@ -30,7 +30,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if args[0] == "version" {
+	if len(args) == 1 && args[0] == "version" {
 		if version == "" {
 			fmt.Println("Version not defined.")
 			os.Exit(0)
